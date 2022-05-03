@@ -20,20 +20,37 @@ namespace ContosoUniversity.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, int? pgAtual = 1, int? tamPg = 3)
         {
             ViewData["LNameSort"] = String.IsNullOrEmpty(sortOrder) ? "LName_Desc" : "";
             ViewData["DateSort"] = sortOrder == "Date" ? "Date_Desc":"Date";
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["CurrentFilter"] = searchString;
+            ViewData["PgAtual"] = pgAtual;
+            ViewData["TamPg"] = tamPg;
 
 
-            var students = from student in _context.Students
-                           select student;
+
+
+            IQueryable<Student> students = _context.Students;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 students = students.Where(t => t.FirstMidName.Contains(searchString) || t.LastName.Contains(searchString));
             }
+
+
+            IQueryable<Student> countQuery = students;
+
+            int totalItens = await countQuery.CountAsync();
+
+            //Importante lembrar que nullable values (como os parametros acima) devem receber a chamada de membro .Value
+            //Isso permite que o valor padrão especificado manualmente seja requisitado, viabilizando os cálculos de paginação
+
+            ViewData["QtdPgs"] = Convert.ToInt32(Math.Ceiling(totalItens * 1M / tamPg.Value));
+
+            students = students.Skip(pgAtual.Value * tamPg.Value - tamPg.Value).Take(tamPg.Value);
+
 
             switch (sortOrder)
             {
