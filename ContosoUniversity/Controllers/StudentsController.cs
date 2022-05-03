@@ -25,10 +25,9 @@ namespace ContosoUniversity.Controllers
             ViewData["LNameSort"] = String.IsNullOrEmpty(sortOrder) ? "LName_Desc" : "";
             ViewData["DateSort"] = sortOrder == "Date" ? "Date_Desc":"Date";
             ViewData["CurrentSort"] = sortOrder;
-            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentSearch"] = searchString;
             ViewData["PgAtual"] = pgAtual;
             ViewData["TamPg"] = tamPg;
-
 
 
 

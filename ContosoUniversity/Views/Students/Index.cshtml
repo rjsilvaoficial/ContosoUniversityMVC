@@ -7,8 +7,8 @@
 <h1>Index</h1>
 
 <form asp-action="Index" method="get">
-    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" />
-    <input type="submit" value="Search" />
+    <input type="text" name="SearchString" value="@ViewData["CurrentSearch"]" />
+    <input type="submit"  value="Search" />
     <a asp-action="Index">Back to full list</a>"
 </form>
 
@@ -19,13 +19,13 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["LNameSort"]">@Html.DisplayNameFor(model => model.LastName)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["LNameSort"]" asp-route-searchString="@ViewData["CurrentSearch"]" asp-route-pgAtual="@ViewData["PgAtual"]">@Html.DisplayNameFor(model => model.LastName)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstMidName)
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSort"]">@Html.DisplayNameFor(model => model.EnrollmentDate)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSort"]" asp-route-searchString="@ViewData["CurrentSearch"]" asp-route-pgAtual="@ViewData["PgAtual"]">@Html.DisplayNameFor(model => model.EnrollmentDate)</a>
             </th>
             <th></th>
         </tr>
@@ -59,7 +59,7 @@
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
        asp-route-pgAtual="1"
-       asp-route-searchString="@ViewData["CurrentSort"]"
+       asp-route-searchString="@ViewData["CurrentSearch"]"
        class="btn btn-primary disabled">
         Previous
     </a>
@@ -68,8 +68,8 @@ else
 {
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-pgAtual="1"
-       asp-route-searchString="@ViewData["CurrentSort"]"
+       asp-route-pgAtual="@((int)ViewData["PgAtual"] - 1)"
+       asp-route-searchString="@ViewData["CurrentSearch"]"
        class="btn btn-primary">
         Previous
     </a>
@@ -82,7 +82,7 @@ else
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
        asp-route-pgAtual="@i"
-       asp-route-searchString="@ViewData["CurrentSort"]"
+       asp-route-searchString="@ViewData["CurrentSearch"]"
        class="btn btn-primary ">
         @i
     </a>
@@ -92,8 +92,8 @@ else
 {
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-pgAtual="1"
-       asp-route-searchString="@ViewData["CurrentSort"]"
+       asp-route-pgAtual="@((int)ViewData["QtdPgs"] + 1)"
+       asp-route-searchString="@ViewData["CurrentSearch"]"
        class="btn btn-primary disabled">
         Next
     </a>
@@ -102,8 +102,8 @@ else
 {
     <a asp-action="Index"
        asp-route-sortOrder="@ViewData["CurrentSort"]"
-       asp-route-pgAtual="1"
-       asp-route-searchString="@ViewData["CurrentSort"]"
+       asp-route-pgAtual="@((int)ViewData["PgAtual"] + 1)"
+       asp-route-searchString="@ViewData["CurrentSearch"]"
        class="btn btn-primary">
         Next
     </a>
