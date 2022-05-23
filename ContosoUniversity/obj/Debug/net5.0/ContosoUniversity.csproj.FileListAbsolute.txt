@@ -151,3 +151,13 @@ C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\R
 C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Students\Edit.cshtml.g.cs
 C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
 C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Home\About.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Courses\Create.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Courses\Delete.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Courses\Details.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Courses\Edit.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Courses\Index.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Instructors\Create.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Instructors\Delete.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Instructors\Details.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Instructors\Edit.cshtml.g.cs
+C:\Projetos\AspNetCoreMVC\ContosoUniversity\ContosoUniversity\obj\Debug\net5.0\Razor\Views\Instructors\Index.cshtml.g.cs
