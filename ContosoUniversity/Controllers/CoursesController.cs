@@ -46,11 +46,10 @@ namespace ContosoUniversity.Controllers
             return View(course);
         }
 
+        //Esse método gera o objeto que serve de insumo para renderização da lista suspensa na view (viewbag com selectlist)
         private void PopulateDepartmentsDropDownList(object selectedDepartment = null)
         {
-            var departmentsQuery = from d in _context.Departments
-                                   orderby d.Name
-                                   select d;
+            var departmentsQuery = _context.Departments.OrderBy(d => d.Name);
             ViewBag.DepartmentID = new SelectList(departmentsQuery.AsNoTracking(), "DepartmentID", "Name", selectedDepartment);
         }
 

@@ -72,23 +72,6 @@ namespace ContosoUniversity.Controllers
             return View(await students.AsNoTracking().ToListAsync());
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -109,12 +92,6 @@ namespace ContosoUniversity.Controllers
 
             return View(student);
         }
-
-
-
-
-
-
 
         // GET: Students/Create
         public IActionResult Create()
@@ -245,8 +222,6 @@ namespace ContosoUniversity.Controllers
             {
                 return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
             }
-
-
         }
 
         private bool StudentExists(int id)
