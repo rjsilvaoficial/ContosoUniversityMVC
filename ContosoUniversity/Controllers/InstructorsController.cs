@@ -24,9 +24,9 @@ namespace ContosoUniversity.Controllers
 
         public async Task<IActionResult> Index(int? id, int? courseID)
         {
-            var viewModel = new InstructorIndexData();
-
-            viewModel.Instructors = await _context.Instructors
+            var viewModel = new InstructorIndexData
+            {
+                Instructors = await _context.Instructors
                 .Include(o => o.OfficeAssignment)
                 .Include(i => i.CourseAssignments)
                     .ThenInclude(c => c.Course)
@@ -35,7 +35,8 @@ namespace ContosoUniversity.Controllers
                 .Include(i => i.CourseAssignments)
                     .ThenInclude(c => c.Course)
                         .ThenInclude(d => d.Department)
-                .AsNoTracking().ToListAsync();
+                .AsNoTracking().ToListAsync()
+            };
 
             if (id != null)
             {
@@ -74,8 +75,10 @@ namespace ContosoUniversity.Controllers
         // GET: Instructors/Create
         public IActionResult Create()
         {
-            var instructor = new Instructor();
-            instructor.CourseAssignments = new List<CourseAssignment>();
+            var instructor = new Instructor
+            {
+                CourseAssignments = new List<CourseAssignment>()
+            };
             PopulateAssignedCourseData(instructor);
             return View();
         }
@@ -83,9 +86,7 @@ namespace ContosoUniversity.Controllers
         // POST: Instructors/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstMidName," +
-                                                      "HireDate,LastName," +
-                                                      "OfficeAssignment")] Instructor instructor, string[] selectedCourses)
+        public async Task<IActionResult> Create([Bind("FirstMidName,HireDate,LastName,OfficeAssignment")] Instructor instructor, string[] selectedCourses)
         {
             if (selectedCourses != null)
             {
